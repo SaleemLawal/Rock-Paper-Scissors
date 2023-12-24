@@ -8,52 +8,7 @@
 </head>
 <body>
     
-    <script>
-        function getComputerChoice(){
-            var choices = ["Rock", "Paper", "Scissors"];
-            var rand = Math.floor(Math.random() * 3);
-            return choices[rand];
-        }
-        function playRound(playerSelection, computerSelection) {
-            playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
-            if (playerSelection == computerSelection){
-                return "Draw";
-            }else if (playerSelection == "Rock" && computerSelection == "Scissors"){
-                return "Player";
-            }else if (playerSelection == "Scissors" && computerSelection == "Paper"){
-                return "Player";
-            }else if (playerSelection == "Paper" && computerSelection == "Rock"){
-                return "Player";
-            }
-            if (computerSelection == "Rock" && playerSelection == "Scissors"){
-                return "Computer";
-            }else if (computerSelection == "Scissors" && playerSelection == "Paper"){
-                return "Computer";
-            }else if (computerSelection == "Paper" && playerSelection == "Rock"){
-                return "Computer";
-            }
-        }
-        function game(){
-            var playerWin = 0;
-            var compWin = 0;
 
-            for(var i = 0; i < 5; i++){
-                var winner = playRound(prompt("enter Rock/Paper/Scissors"), getComputerChoice());
-                if ( winner == "Draw"){
-                    continue;
-                }else if (winner == "Player"){
-                    playerWin++;
-                }else{
-                    compWin++;
-                }
-                console.log("Current Score => Player: " + playerWin + " Computer: " + compWin);
-            }
-            var finalWinner = (playerWin > compWin) ? "Player" : "computer";
-            console.log("Final winner is " + finalWinner);
-
-        }
-
-
-    </script>
+    <script src="./index.js"></script>
 </body>
 </html>
