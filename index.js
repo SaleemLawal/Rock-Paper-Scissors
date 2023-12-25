@@ -23,7 +23,8 @@ function getUserChoice(){
             checkWin(playerScore, computerScore);
             
         });
-        getContainer[i].addEventListener("touchstart", function () {
+        getContainer[i].addEventListener("touchstart", function (event) {
+            event.preventDefault(); 
             var userChoice = signs[this.innerText];
             var computerChoice = getComputerChoice();
             var result = playRound(userChoice, computerChoice);
@@ -124,7 +125,9 @@ function checkWin(playerScore, computerScore){
             document.querySelector("#end-game").classList.remove("active")
 
         });
-        getPlayAgain.addEventListener("touchstart", function(){
+        getPlayAgain.addEventListener("touchstart", function(event){
+            event.preventDefault(); 
+
             // reset the score board message
             document.querySelector("h2.score-info").textContent = "Choose your weapon";
             document.querySelector("h3.score-message").textContent = "First to score 5 points wins the game";
