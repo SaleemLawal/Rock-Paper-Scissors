@@ -1,7 +1,106 @@
 /* Start Universal Reset*/
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 *{
     box-sizing: border-box;
     border: 0;
     margin: 0;
 }
+
 /* End Universal Reset*/
+body{
+    height: 100vh;
+    background-color: #222831;
+    color: rgb(223, 219, 219);
+}
+
+header{
+    height: 12%;
+    background-color: #111720;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.title{
+    font-size: 2rem;
+    color: #fac650;
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+.main{
+    height: 82%;
+    position: relative;
+    width: 100%;
+}
+
+.score-board{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.selection{
+    width: 75%;
+    margin: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+#player,
+#computer{
+    padding: 2rem;
+}
+
+.player-choice,
+.computer-choice{
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.player-score,
+.computer-score{
+    margin-top: 1.5rem;
+}
+button {
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+
+.btn-sqr{
+    font-size: 4rem;
+    background-color: #393e46;
+    border-radius: 0.8rem;
+    padding: 10px 20px;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+img{
+    background-color: #393e46;
+    width: 1rem;
+    height: 1rem;
+}
+footer{
+    height:fit-content;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+
+
