@@ -23,6 +23,16 @@ function getUserChoice(){
             checkWin(playerScore, computerScore);
             
         });
+        getContainer[i].addEventListener("touchstart", function () {
+            var userChoice = signs[this.innerText];
+            var computerChoice = getComputerChoice();
+            var result = playRound(userChoice, computerChoice);
+            var currentScore = updateScreen(result, userChoice, computerChoice);
+            var playerScore = currentScore[0];
+            var computerScore = currentScore[1];
+            checkWin(playerScore, computerScore);
+            
+        });
     }
     
 }
@@ -101,6 +111,20 @@ function checkWin(playerScore, computerScore){
         // listen for play again
         const getPlayAgain = document.querySelector("button.play-again");
         getPlayAgain.addEventListener("click", function(){
+            // reset the score board message
+            document.querySelector("h2.score-info").textContent = "Choose your weapon";
+            document.querySelector("h3.score-message").textContent = "First to score 5 points wins the game";
+
+            // reset the player scores
+            document.querySelector("h3.player-score").textContent = "Player: 0"
+            document.querySelector("h3.computer-score").textContent = "Computer: 0"
+
+            // deactivate the end game screen
+            document.querySelector("#overlay").classList.remove("active");
+            document.querySelector("#end-game").classList.remove("active")
+
+        });
+        getPlayAgain.addEventListener("touchstart", function(){
             // reset the score board message
             document.querySelector("h2.score-info").textContent = "Choose your weapon";
             document.querySelector("h3.score-message").textContent = "First to score 5 points wins the game";
