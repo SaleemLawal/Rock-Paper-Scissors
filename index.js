@@ -14,7 +14,7 @@ function getUserChoice(){
     
     for (var i = 0; i < getContainer.length; i++){
         getContainer[i].addEventListener("click", function () {
-            var userChoice = signs[this.innerText];
+            var userChoice = this.getAttribute("data-choice");
             var computerChoice = getComputerChoice();
             var result = playRound(userChoice, computerChoice);
             var currentScore = updateScreen(result, userChoice, computerChoice);
@@ -25,13 +25,16 @@ function getUserChoice(){
         });
         getContainer[i].addEventListener("touchstart", function (event) {
             event.preventDefault(); 
-            var userChoice = signs[this.innerText];
+            if (!event.handled) {
+                event.handled = true;
+            var userChoice = this.getAttribute("data-choice");
             var computerChoice = getComputerChoice();
             var result = playRound(userChoice, computerChoice);
             var currentScore = updateScreen(result, userChoice, computerChoice);
             var playerScore = currentScore[0];
             var computerScore = currentScore[1];
             checkWin(playerScore, computerScore);
+            }
             
         });
     }
@@ -127,19 +130,21 @@ function checkWin(playerScore, computerScore){
         });
         getPlayAgain.addEventListener("touchstart", function(event){
             event.preventDefault(); 
+            if (!event.handled) {
+                event.handled = true;
 
-            // reset the score board message
-            document.querySelector("h2.score-info").textContent = "Choose your weapon";
-            document.querySelector("h3.score-message").textContent = "First to score 5 points wins the game";
+                // reset the score board message
+                document.querySelector("h2.score-info").textContent = "Choose your weapon";
+                document.querySelector("h3.score-message").textContent = "First to score 5 points wins the game";
 
-            // reset the player scores
-            document.querySelector("h3.player-score").textContent = "Player: 0"
-            document.querySelector("h3.computer-score").textContent = "Computer: 0"
+                // reset the player scores
+                document.querySelector("h3.player-score").textContent = "Player: 0"
+                document.querySelector("h3.computer-score").textContent = "Computer: 0"
 
-            // deactivate the end game screen
-            document.querySelector("#overlay").classList.remove("active");
-            document.querySelector("#end-game").classList.remove("active")
-
+                // deactivate the end game screen
+                document.querySelector("#overlay").classList.remove("active");
+                document.querySelector("#end-game").classList.remove("active")
+            }
         });
     }    
 }
