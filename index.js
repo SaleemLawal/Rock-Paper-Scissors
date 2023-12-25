@@ -89,7 +89,6 @@ function updateScreen (result, userChoice, computerChoice){
 }
 
 function checkWin(playerScore, computerScore){
-    console.log(computerScore);
     if (playerScore == 5 || computerScore == 5){
         if (playerScore == 5){
             document.querySelector("p#end-game-message").textContent = "You Won!"
