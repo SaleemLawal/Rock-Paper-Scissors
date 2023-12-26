@@ -6,11 +6,6 @@ function getComputerChoice(){
 
 function getUserChoice(){
     const getContainer = document.querySelectorAll("button.btn-sqr");
-    var signs = {
-        "✊🏾": "rock",
-        "🖐🏾": "paper",
-        "✌🏾": "scissors"
-    };
     
     for (var i = 0; i < getContainer.length; i++){
         getContainer[i].addEventListener("click", function () {
